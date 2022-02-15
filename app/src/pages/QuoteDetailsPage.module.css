@@ -1,0 +1,82 @@
+.quote-header {
+  display: flex;
+  border-bottom: 1px solid rgb(192, 192, 192);
+  height: max-content;
+  align-items: center;
+}
+
+.id-control {
+  width: 100%;
+  border-right: 1px solid rgb(192, 192, 192);
+}
+
+.id-control p {
+  font-size: 0.6rem;
+  margin: 0;
+}
+
+.id-control h1 {
+  margin: 0;
+}
+
+.plates-control {
+  width: 100%;
+  margin-left: 0.3rem;
+  text-transform: uppercase;
+}
+
+.client-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-block {
+  display: flex;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.info-block > h1 {
+  margin: 0;
+}
+
+.tags {
+  min-width: 7rem;
+}
+
+.total {
+  color: red;
+}
+
+.obs {
+  font-size: 0.7rem;
+}
+
+.description {
+  font-size: 0.6rem;
+  
+}
+
+.status {
+  text-align: center;
+}
+.status label {
+  color: black;
+  font-size: 0.8rem;
+}
+
+.status select {
+  font-size: 0.8rem;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.status option {
+  font-size: 0.6rem;
+}
+
+.actions {
+  width: 50%;
+  margin: 2rem auto;
+}

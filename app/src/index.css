@@ -1,0 +1,22 @@
+:root {
+  --main-color: rgb(112, 35, 35);
+  --error-color: rgb(202, 63, 63);
+}
+
+* {
+  box-sizing: border-box;
+  font-size: 22px;
+}
+
+html {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+body{
+  margin: 0 0 1rem 0;
+}
+
+input:focus {
+  outline: none;
+}
+

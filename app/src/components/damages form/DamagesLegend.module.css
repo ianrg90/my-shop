@@ -1,0 +1,10 @@
+.legend{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;    
+}
+
+.legend p {
+    font-size: 0.6rem;
+    margin: 0;
+}

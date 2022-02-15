@@ -1,0 +1,10 @@
+
+
+ .vehicle-model input{
+   border: none;
+   border-bottom: 1px solid rgb(164, 171, 179);
+   margin-bottom: 1rem;
+   font-size: 0.6rem;
+   text-transform: capitalize;
+   width: 100%;
+ }

@@ -1,0 +1,36 @@
+.service-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-options{
+  width: 70%;
+}
+
+.service-options select{
+  text-transform: capitalize;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.service-options option{
+  font-size: 0.6rem;
+}
+
+.service-item input {
+  width: 60%;
+  font-size: 0.6rem;
+  border: none;
+  border-bottom: 1px solid rgb(164, 171, 179);
+  text-transform: capitalize;
+}
+
+.service-item label {
+  color: var(--error-color);
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+

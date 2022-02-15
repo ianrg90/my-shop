@@ -1,0 +1,15 @@
+.container{
+    text-align: center;
+}
+
+.container button{
+    color: white;
+    background-color: var(--main-color);
+    border-radius: 2px;
+    width: 100%;
+    border: none;
+    height: 1.8rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}

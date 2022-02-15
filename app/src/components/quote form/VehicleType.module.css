@@ -1,0 +1,23 @@
+.vehicle-type label,
+p {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: black;
+}
+
+.vehicle-type-list {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.vehicle-type-item {
+  margin-right: 2rem;
+  display: flex;
+  align-items: center;
+  height: 1.1rem;
+}
+
+input[type="radio" i] {
+  margin: 0 0.3rem 0;
+}

@@ -1,0 +1,39 @@
+.link a {
+    text-decoration: none;
+    color: black;
+}
+
+.list-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+@media (max-width: 337px){
+    .list-item{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.car-info{
+    min-width: 200px;
+}
+
+.status{
+    flex-basis: 25%;
+}
+
+.list-item h1{
+    font-size: 0.8rem;
+    text-transform: capitalize;
+    margin: 0;
+}
+
+.list-item p {
+    text-transform: uppercase;
+    font-weight: 400;
+}
+

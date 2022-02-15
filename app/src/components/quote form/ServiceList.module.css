@@ -1,0 +1,32 @@
+.services-list  {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.services-list li {
+  display: flex;
+  flex-wrap: wrap;
+  text-transform: capitalize;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.services-list h1, p {
+  margin: 0;
+}
+
+.services-list h1 {
+  font-size: 0.8rem;
+  min-width: 100px;
+}
+
+.total{
+  margin: 1rem 0 0 0 ;
+  text-align: right;
+}
+
+
+
+

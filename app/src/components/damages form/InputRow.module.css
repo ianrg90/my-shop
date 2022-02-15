@@ -1,0 +1,49 @@
+.checklist-item{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 0.2rem;
+}
+
+@media(max-width: 334px){
+  .checklist-item{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+    
+  }
+
+  .checklist-item p{
+   margin-bottom: 0.5rem;
+  }
+
+  .checklist-inputs{
+    display: flex;
+    justify-content: space-between;
+  }  
+} 
+
+.checklist-item label {
+  font-size: 0.6rem;
+  color: black;
+}
+
+
+.checklist-inputs{
+  display: flex;
+}
+
+.checklist-inputs input {
+  margin: 0 !important;
+  margin-right: 0.2rem !important;
+}
+
+.checklist-inputs > div {
+  display: inline-flex;
+  width: 2rem;
+}
+
+
+
+

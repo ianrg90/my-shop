@@ -1,0 +1,21 @@
+.observations{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.observations label{
+    color: black;
+}
+
+.observations textarea{
+    width: 100%;
+    font-size: 0.6rem;
+    border: none;
+    resize: none;
+}
+
+.observations textarea:focus{
+    outline: none;
+}
+

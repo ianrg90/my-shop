@@ -1,0 +1,22 @@
+.services {
+    display: inline-flex;
+    width: 100% ;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.services input {
+    display: block;
+    border: none;
+    border-bottom: 1px solid rgb(164, 171, 179);
+    margin-bottom: 1rem;
+    width: 100%;
+    font-size: 0.6rem;
+    text-transform: capitalize;
+    font-size: 0.6rem;
+}
+
+.services .actions {
+    width: 70px;
+}
+
