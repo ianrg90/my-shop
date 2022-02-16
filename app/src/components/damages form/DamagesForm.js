@@ -18,9 +18,6 @@ function DamagesForm(props) {
 
   function submitDamageChecklist(e){
     e.preventDefault()
-    if(selectedDamages.length === 0){
-      return
-    }
     props.onCompleteDamageForm()
   }
 

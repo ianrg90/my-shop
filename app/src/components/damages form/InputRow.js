@@ -55,12 +55,12 @@ function InputRow(props) {
       </div>
       <div className={classes["checklist-inputs"]}>
         <div>
-          <input id="amassado" type="checkbox" value="A" onChange={handleDamageInput} />
-          <label htmlFor="amassado">A</label>
+          <input id="lanternagem" type="checkbox" value="L" onChange={handleDamageInput} />
+          <label htmlFor="lanternagem">L</label>
         </div>
         <div>
-          <input id="riscado" type="checkbox" value="R" onChange={handleDamageInput} />
-          <label htmlFor="riscado">R</label>
+          <input id="pintura" type="checkbox" value="P" onChange={handleDamageInput} />
+          <label htmlFor="pintura">P</label>
         </div>
         <div>
           <input id="troca" type="checkbox" value="T" onChange={handleDamageInput} />

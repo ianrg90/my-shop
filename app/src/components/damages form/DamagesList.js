@@ -19,6 +19,7 @@ function DamagesList() {
           <InputRow perspective="Frente" area="Farol(dir)" />
           <InputRow perspective="Frente" area="Parachoque lado(esq)" />
           <InputRow perspective="Frente" area="Parachoque lado(dir)" />
+          <InputRow perspective="Frente" area="Parachoque todo" />
           <InputRow perspective="Frente" area="Capô" />
           <InputRow perspective="Frente" area="Teto" />
         </div>
@@ -33,6 +34,7 @@ function DamagesList() {
           <InputRow perspective="Traseira" area="Lanterna(dir)" />
           <InputRow perspective="Traseira" area="Parachoque lado(esq)" />
           <InputRow perspective="Traseira" area="Parachoque lado(dir)" />
+          <InputRow perspective="Traseira" area="Parachoque todo" />
           <InputRow perspective="Traseira" area="Porta malas" />
         </div>
       </div>
@@ -46,6 +48,7 @@ function DamagesList() {
           <InputRow perspective="Lado esquerdo" area="Retrovisor" />
           <InputRow perspective="Lado esquerdo" area="Porta(dia)" />
           <InputRow perspective="Lado esquerdo" area="Roda(dia)" />
+          <InputRow perspective="Lado esquerdo" area="Caixa de ar" />
           <InputRow perspective="Lado esquerdo" area="Porta(tras)" />
           <InputRow perspective="Lado esquerdo" area="Roda(tras)" />
           <InputRow perspective="Lado esquerdo" area="Paralama(tras)" />
@@ -61,6 +64,7 @@ function DamagesList() {
           <InputRow perspective="Lado direito" area="Retrovisor" />
           <InputRow perspective="Lado direito" area="Porta(dia)" />
           <InputRow perspective="Lado direito" area="Roda(dia)" />
+          <InputRow perspective="Lado direito" area="Caixa de ar" />
           <InputRow perspective="Lado direito" area="Porta(tras)" />
           <InputRow perspective="Lado direito" area="Roda(tras)" />
           <InputRow perspective="Lado direito" area="Paralama(tras)" />

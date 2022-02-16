@@ -37,12 +37,14 @@
   flex-wrap: wrap;
 }
 
-.info-block > h1 {
-  margin: 0;
+.service-quote{
+  display: flex;
+  justify-content: space-between;
+  text-transform: capitalize;
 }
 
 .tags {
-  min-width: 7rem;
+  min-width: 9rem;
 }
 
 .total {
@@ -70,6 +72,7 @@
   font-size: 0.8rem;
   border-radius: 5px;
   background-color: white;
+  border: none;
 }
 
 .status option {

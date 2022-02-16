@@ -5,8 +5,8 @@ import Header from "../components/layout/header/Header";
 import Main from "../components/layout/main/Main";
 import Card from "../components/UI/Card";
 import classes from "./QuoteDetailsPage.module.css";
-import Button from "../components/UI/Button"
-import {deleteQuoteData, updateStatusData} from "../store/quote-actions"
+import Button from "../components/UI/Button";
+import { deleteQuoteData, updateStatusData } from "../store/quote-actions";
 
 function QuoteDetailsPage() {
   const [isEmpty, setIsEmpty] = useState(true);
@@ -14,8 +14,8 @@ function QuoteDetailsPage() {
   const quote = useSelector((state) => state.quotes.quoteList);
   const params = useParams();
   const quoteID = params.quoteID;
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   //Need to find a way of just load the page when the currenquote is ready
   useEffect(() => {
@@ -25,10 +25,7 @@ function QuoteDetailsPage() {
       }
     }
     setIsEmpty(false);
-
   }, [quote, quoteID]);
-
-  console.log(currentQuote)
 
   let services;
   let damages;
@@ -36,13 +33,15 @@ function QuoteDetailsPage() {
   if (!isEmpty) {
     services = currentQuote.services.map((service) => {
       return (
-        <div key={service.id} className={classes["info-block"]}>
-          <h1 className={classes["tags"]}>{service.serviceName}</h1>
-          <h1>{service.servicePrice}</h1>
+        <div key={service.id} className={classes["service-quote"]}>
+          <h1 className={classes["service-name"]}>{service.serviceName}</h1>
+          <h1>-{service.servicePrice}</h1>
         </div>
       );
     });
+  }
 
+  if (!isEmpty && currentQuote.damages) {
     damages = currentQuote.damages.map((damage) => {
       return (
         <div key={damage.id}>
@@ -54,20 +53,18 @@ function QuoteDetailsPage() {
     });
   }
 
-  function handleStatus (e){
-    if(e.target.value === ""){
-      return
+  function handleStatus(e) {
+    if (e.target.value === "") {
+      return;
     }
-    dispatch(updateStatusData(quoteID, e.target.value))
-    navigate("/user", {replace: true})
-    
+    dispatch(updateStatusData(quoteID, e.target.value));
+    navigate("/user", { replace: true });
   }
 
-  function deleteQuote(){
-    dispatch(deleteQuoteData(quoteID))
-    navigate("/user", {replace: true})
+  function deleteQuote() {
+    dispatch(deleteQuoteData(quoteID));
+    navigate("/user", { replace: true });
   }
-
 
   return (
     <Fragment>
@@ -125,14 +122,22 @@ function QuoteDetailsPage() {
           </div>
         </Card>
         <Card>
-          <h1>Relatório de danos</h1>
-          {damages}
+            <div className={classes["info-block"]}>
+              <p className={classes["tags"]} >Data prevista para entrega: </p>
+              <p>{currentQuote.formatedDeliveryDate}</p>
+            </div>
         </Card>
+        {damages && (
+          <Card>
+            <h1>Relatório de danos</h1>
+            {damages}
+          </Card>
+        )}
         <Card>
           <h1>Serviços:</h1>
-          <hr/>
+          <hr />
           {services}
-          <hr/>
+          <hr />
           <h1 className={classes.total}>Total: {currentQuote.total}</h1>
         </Card>
         {currentQuote.obs !== "" && (
@@ -146,10 +151,10 @@ function QuoteDetailsPage() {
             <p className={classes.obs}>Peças: </p>
             <span className={classes.description}>{currentQuote.parts}</span>
           </Card>
-          )}
-        <div className= {classes.status}>
+        )}
+        <div className={classes.status}>
           <label htmlFor="status">Status: </label>
-          <select name="status" defaultValue="pendente"  onChange={handleStatus}>
+          <select name="status" defaultValue="pendente" onChange={handleStatus}>
             <option value="pendente">Pendente</option>
             <option value="aprovado">Aprovado</option>
             <option value="lanternagem">Lanternagem</option>
@@ -160,7 +165,7 @@ function QuoteDetailsPage() {
           </select>
         </div>
         <div className={classes.actions}>
-          <Button text = "Apagar orçamento" onClick = {deleteQuote}/>
+          <Button text="Apagar orçamento" onClick={deleteQuote} />
         </div>
       </Main>
     </Fragment>

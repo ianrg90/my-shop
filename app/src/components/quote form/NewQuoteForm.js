@@ -6,7 +6,7 @@ import Button from "../UI/Button";
 import RefNumAndPlates from "./RefNumAndPlates";
 import ClientInfo from "./ClientInfo";
 import VehicleType from "./VehicleType";
-import VehicleModelAndColor from "./VehicleModelAndColor";
+import VehicleInfo from "./VehicleInfo";
 import ServiceList from "./ServiceList";
 import NewService from "./NewService";
 import ObservationsAndParts from "./ObservationsAndParts";
@@ -20,7 +20,7 @@ function NewQuoteForm() {
   const [serviceAndPriceList, setServiceAndPriceList] = useState([]);
   const [totalPrice, setTotalPrice] = useState("");
   const [obs, setObs] = useState("");
-  const [parts, setParts] = useState("")
+  const [parts, setParts] = useState("");
 
   const dispatch = useDispatch();
   const damages = useSelector((state) =>
@@ -48,9 +48,17 @@ function NewQuoteForm() {
   }, []);
 
   const getVehicleInfo = useCallback(
-    (make, model, color, year, infoIsValid) => {
+    (make, model, color, year, deliveryDate, infoIsValid) => {
       setEnteredVehicleInfo((prevState) => {
-        return { ...prevState, make, model, color, year, infoIsValid };
+        return {
+          ...prevState,
+          make,
+          model,
+          color,
+          year,
+          deliveryDate,
+          infoIsValid,
+        };
       });
     },
     []
@@ -67,9 +75,9 @@ function NewQuoteForm() {
   }, []);
 
   const getObsAndParts = useCallback((obs, parts) => {
-    setObs(obs)
-    setParts(parts)
-  }, [])
+    setObs(obs);
+    setParts(parts);
+  }, []);
 
   //Handle list state to add or remove services
   function deleteServiceItem(id) {
@@ -92,10 +100,13 @@ function NewQuoteForm() {
       return;
     }
 
-    const date = new Date().toLocaleDateString("pt-BR");
+    const formatedEnteringDate = new Date().toLocaleDateString("pt-BR");
+    const completeDeliveryDate = new Date(enteredVehicleInfo.deliveryDate);
+    const formatedDeliveryDate = completeDeliveryDate.toLocaleDateString("pt-BR");
 
     const quoteData = {
-      date,
+      date: formatedEnteringDate,
+      formatedDeliveryDate,
       refNumb: enteredPlateAndRef.refNumb,
       plate: enteredPlateAndRef.plate,
       clientName: enteredClientInfo.name,
@@ -121,11 +132,11 @@ function NewQuoteForm() {
   }
 
   return (
-    <form className={classes["form-control"]} id = "quote-form">
+    <form className={classes["form-control"]} id="quote-form">
       <RefNumAndPlates onGetPlateNumAndRef={getPlateNumAndRef} />
       <ClientInfo onGetClientInfo={getClientInfo} />
       <VehicleType onGetVehicleType={getVehicleType} />
-      <VehicleModelAndColor onGetVehicleInfo={getVehicleInfo} />
+      <VehicleInfo onGetVehicleInfo={getVehicleInfo} />
       {serviceAndPriceList.length > 0 && (
         <ServiceList
           list={serviceAndPriceList}
@@ -134,7 +145,7 @@ function NewQuoteForm() {
         />
       )}
       <NewService onGetServiceAndPrice={getServiceAndPrice} />
-      <ObservationsAndParts onGetObsAndParts = {getObsAndParts}/>
+      <ObservationsAndParts onGetObsAndParts={getObsAndParts} />
       <Button text="Finalizar orçamento" type="submit" onClick={submitQuote} />
     </form>
   );

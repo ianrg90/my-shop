@@ -1,26 +1,27 @@
 .service-item {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
-.service-options{
-  width: 70%;
-}
 
 .service-options select{
   text-transform: capitalize;
-  font-size: 0.8rem;
-  border-radius: 5px;
+  font-size: 0.6rem;
   background-color: white;
+  border: none;
 }
 
 .service-options option{
   font-size: 0.6rem;
 }
 
+.service-options select:focus{
+  outline: none;
+}
+
 .service-item input {
-  width: 60%;
+  width: 100%;
   font-size: 0.6rem;
   border: none;
   border-bottom: 1px solid rgb(164, 171, 179);
@@ -33,4 +34,8 @@
   font-weight: 600;
 }
 
+.services-actions{
+  width: 5rem;
+  margin: 1rem auto 0 auto;
+}
 

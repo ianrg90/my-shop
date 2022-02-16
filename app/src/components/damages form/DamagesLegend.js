@@ -5,8 +5,8 @@ function DamagesLegend() {
   return (
     <Card>
       <div className={classes.legend}>
-        <p>A - Amassado</p>
-        <p>R - Riscado</p>
+        <p>L - Lanternagem</p>
+        <p>P - Pintura</p>
         <p>T - Troca</p>
       </div>
     </Card>

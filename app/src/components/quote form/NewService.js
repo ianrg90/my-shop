@@ -71,7 +71,7 @@ function NewService(props) {
       <div className={classes["service-item"]}>
         <div className={classes["service-options"]}>
           {serviceHasError && <label>Campo inválido</label>}
-          <select 
+          <select
             value={enteredService}
             onChange={handleServiceType}
             onBlur={handleServiceTouch}
@@ -80,7 +80,7 @@ function NewService(props) {
             {serviceOptions}
           </select>
         </div>
-        <div className= {classes["service-price"]}>
+        <div className={classes["service-price"]}>
           {priceHasError && <label>Campo inválido</label>}
           <input
             value={enteredPrice}
@@ -90,8 +90,10 @@ function NewService(props) {
             onBlur={handlePriceTouch}
           />
         </div>
+      </div>
+      <div className={classes["services-actions"]}>
         <Button
-          text="Adicionar"
+          text="Addicionar"
           type="button"
           onClick={handleServiceCreation}
         />

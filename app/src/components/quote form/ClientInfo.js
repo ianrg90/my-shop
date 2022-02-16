@@ -20,7 +20,18 @@ function ClientInfo(props) {
     fieldHasError: phoneHasError,
     handleEnteredValue: handlePhone,
     handleInputTouch: handlePhoneTouch,
-  } = useInput((value) => /^[1-9]{2}[9][\d]{8}/gi.test(value.trim()));
+  } = useInput((value) => {
+    if(value.trim().length === 11 && (/^[1-9]{2}[9][\d]{8}/gi.test(value.trim()))){
+      return true
+    }
+
+    else if(value.trim().length === 10 && (/^[1-9]{2}[2-3]/gi.test(value.trim()))){
+      return true
+    }
+    else{
+      return false
+    }    
+  });
 
   const { enteredValue: enteredCPF, handleEnteredValue: handleCPF } = useInput(
     (value) => value.trim() !== "");
@@ -49,8 +60,8 @@ function ClientInfo(props) {
         {phoneHasError && <label>Número de telefone inválido</label>}
         <input
           type="text"
-          placeholder="Celular"
-          maxLength="11"
+          placeholder="Contato"
+          maxLength={11}
           onChange={handlePhone}
           onBlur={handlePhoneTouch}
         />
