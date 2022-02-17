@@ -2,7 +2,6 @@ import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../layout/header/Header";
 import Main from "../layout/main/Main";
-import logoImage from "../../assets/logo.png";
 import classes from "../../pages/LoginPage.module.css";
 import Button from "../UI/Button";
 import useInput from "../../hooks/use-input";
@@ -41,6 +40,8 @@ function Signin(props) {
       userPassword: enteredPassword,
     };
 
+    console.log(user)
+
     resetEmail();
     resetPassword();
 
@@ -52,7 +53,7 @@ function Signin(props) {
       <Header text="Signin" />
       <Main>
         <div className={classes.logo}>
-          <img src={logoImage} alt="logo" />
+          <h1>Black Shed</h1>
         </div>
         <form>
           <div className={classes["form-control"]}>

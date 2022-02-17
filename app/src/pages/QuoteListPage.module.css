@@ -1,6 +1,43 @@
+.filter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter label{
+    color: black;
+    padding-right: 10px;
+}
+
+.filter select, option{
+    font-size: 0.6rem;
+    border: none;
+    background-color: white;
+}
+
+.filter select:focus{
+    outline: none;
+}
+
+.filter input{
+    width: 50%;
+    font-size: 0.6rem;
+    border: none;
+    border-bottom: 1px solid rgb(164, 171, 179);
+}
+
 .quote-list{
     list-style: none;
     margin: 0;
     padding: 0;
+}
+
+.no-match{
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.no-match p {
+    font-size: 1rem;
 }
 
