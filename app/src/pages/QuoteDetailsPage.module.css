@@ -1,28 +1,21 @@
-.quote-header {
+.header{
   display: flex;
-  border-bottom: 1px solid rgb(192, 192, 192);
-  height: max-content;
+  justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
-.id-control {
-  width: 100%;
-  border-right: 1px solid rgb(192, 192, 192);
+.header .logo {
+  font-family: "Anton", sans-serif;
+  font-size: 1.1rem;
 }
 
-.id-control p {
-  font-size: 0.6rem;
+.header .date{
+  font-size: 0.8rem;
+}
+
+.header h1{
   margin: 0;
-}
-
-.id-control h1 {
-  margin: 0;
-}
-
-.plates-control {
-  width: 100%;
-  margin-left: 0.3rem;
-  text-transform: uppercase;
 }
 
 .client-info {
@@ -35,6 +28,10 @@
   text-transform: capitalize;
   margin-bottom: 0.5rem;
   flex-wrap: wrap;
+}
+
+.info-block .uppercase{
+  text-transform: uppercase;
 }
 
 .service-quote{

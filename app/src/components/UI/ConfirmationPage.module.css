@@ -1,0 +1,13 @@
+.confirmation-container{
+    text-align: center;
+}
+
+.confirmation-container .actions{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.confirmation-container .actions button {
+    width: 4rem;
+}
+

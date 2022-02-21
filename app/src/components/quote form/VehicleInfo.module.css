@@ -7,5 +7,14 @@
    width: 100%;
  }
 
+ .vehicle-model .plates-input{
+   text-transform: uppercase;
+ }
+
+ .vehicle-model .plates-input::placeholder{
+   text-transform: lowercase;
+   text-transform: capitalize;
+ }
+
 
 

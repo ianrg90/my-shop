@@ -6,7 +6,6 @@ import Button from "../UI/Button";
 import useInput from "../../hooks/use-input";
 
 function Signup(props) {
-
   const {
     enteredValue: enteredName,
     valueIsValid: nameIsValid,
@@ -57,18 +56,17 @@ function Signup(props) {
     }
 
     const user = {
-      username: enteredName,
-      userEmail: enteredEmail,
+      username: enteredName.toLowerCase(),
+      userEmail: enteredEmail.toLowerCase(),
       userPassword: enteredPassword,
     };
     resetName();
     resetEmail();
     resetPassword();
     resetConfirmPassword();
-    console.log(user);
 
-    props.onChangePage()
-
+    props.onGetUserLogInfo(user);
+    props.onChangePage();
   }
 
   return (
@@ -80,7 +78,7 @@ function Signup(props) {
             {nameHasError && <label>Favor preencher o campo abaixo</label>}
             <input
               type="text"
-              placeholder="Nome da oficina"
+              placeholder="Nome de usuário"
               onChange={handleEnteredName}
               onBlur={handleNameTouch}
               value={enteredName}

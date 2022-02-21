@@ -6,6 +6,18 @@ import classes from "./VehicleInfo.module.css";
 function VehicleInfo(props) {
   //Use the useInput hook to validate the input fields and warn the user of mistakes
   const {
+    enteredValue: enteredPlate,
+    valueIsValid: plateIsValid,
+    fieldHasError: plateHasError,
+    handleEnteredValue: handlePlate,
+    handleInputTouch: handlePlateTouch,
+  } = useInput(
+    (value) =>
+    /^[A-Z]{3}[0-9]{4}$/gi.test(value.trim()) ||
+    /^[A-Z]{3}[\d]{1}[A-Z]{1}[\d]{2}/gi.test(value.trim())
+  );
+  
+  const {
     enteredValue: enteredMake,
     valueIsValid: makeIsValid,
     fieldHasError: makeHasError,
@@ -54,10 +66,11 @@ function VehicleInfo(props) {
 
   //If any of the values is invalid prevent the form to be submited on the parent component
   const infoIsValid =
-    makeIsValid && modelIsValid && colorIsValid && yearIsValid && dateIsValid;
+   plateIsValid && makeIsValid && modelIsValid && colorIsValid && yearIsValid && dateIsValid;
 
   useEffect(() => {
     onGetVehicleInfo(
+      enteredPlate,
       enteredMake,
       enteredModel,
       enteredColor,
@@ -67,6 +80,7 @@ function VehicleInfo(props) {
     );
   }, [
     onGetVehicleInfo,
+    enteredPlate,
     enteredMake,
     enteredModel,
     enteredColor,
@@ -79,6 +93,14 @@ function VehicleInfo(props) {
     <Fragment>
       <Card>
         <div className={classes["vehicle-model"]}>
+          {plateHasError && <label>Formato de placa inválida</label>}
+          <input className={classes["plates-input"]}
+            type="text"
+            placeholder="Placa"
+            onChange={handlePlate}
+            onBlur={handlePlateTouch}
+            maxLength="7"
+          />
           {makeHasError && <label>Campo inválido</label>}
           <input
             type="text"
@@ -113,13 +135,13 @@ function VehicleInfo(props) {
         </div>
       </Card>
       <Card>
-      <div className={classes["vehicle-model"]}>
+        <div className={classes["vehicle-model"]}>
           {dateHasError && <label>Campo inválido</label>}
           <input
             type="text"
             placeholder="Data prevista para entrega"
             required
-            onFocus={(e) => e.target.type = "date" }
+            onFocus={(e) => (e.target.type = "date")}
             onChange={handleDate}
             onBlur={handleDateTouch}
           />

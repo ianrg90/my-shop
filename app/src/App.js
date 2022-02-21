@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import ServicesPage from "./pages/ServicesPage";
@@ -12,11 +12,16 @@ function App() {
     <Routes>
       <Route path="/" element={<Navigate to="/login" />} />
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/user" element={<UserOptionsPage />} />
-      <Route path="/user/services" element={<ServicesPage />} />
-      <Route path="/user/new-quote" element={<NewQuotePage />} />
-      <Route path="/user/quote-list" element={<QuoteListPage />} />
-      <Route path="/user/quote-list/:quoteID" element={<QuoteDetailsPage />} />
+      <Fragment>
+        <Route path="/user" element={<UserOptionsPage />} />
+        <Route path="/user/services" element={<ServicesPage />} />
+        <Route path="/user/new-quote" element={<NewQuotePage />} />
+        <Route path="/user/quote-list" element={<QuoteListPage />} />
+        <Route
+          path="/user/quote-list/:quoteID"
+          element={<QuoteDetailsPage />}
+        />
+      </Fragment>
     </Routes>
   );
 }

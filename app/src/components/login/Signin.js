@@ -7,7 +7,7 @@ import Button from "../UI/Button";
 import useInput from "../../hooks/use-input";
 
 function Signin(props) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const {
     enteredValue: enteredEmail,
@@ -36,16 +36,16 @@ function Signin(props) {
     }
 
     const user = {
-      userEmail: enteredEmail,
+      userEmail: enteredEmail.toLowerCase(),
       userPassword: enteredPassword,
     };
 
-    console.log(user)
+    props.onGetUserLogInfo(user);
 
     resetEmail();
     resetPassword();
 
-    navigate("/user", {replace: true})
+    navigate("/user", { replace: true });
   }
 
   return (

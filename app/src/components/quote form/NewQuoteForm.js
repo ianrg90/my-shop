@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import classes from "./NewQuoteForm.module.css";
 import Button from "../UI/Button";
-import RefNumAndPlates from "./RefNumAndPlates";
 import ClientInfo from "./ClientInfo";
 import VehicleType from "./VehicleType";
 import VehicleInfo from "./VehicleInfo";
@@ -12,8 +11,8 @@ import NewService from "./NewService";
 import ObservationsAndParts from "./ObservationsAndParts";
 import { postQuoteData } from "../../store/quote-actions";
 
+
 function NewQuoteForm() {
-  const [enteredPlateAndRef, setEnteredPlateAndRef] = useState({});
   const [enteredClientInfo, setEnteredClientInfo] = useState({});
   const [enteredType, setEnteredType] = useState("");
   const [enteredVehicleInfo, setEnteredVehicleInfo] = useState({});
@@ -28,11 +27,6 @@ function NewQuoteForm() {
   );
   const navigate = useNavigate();
 
-  const getPlateNumAndRef = useCallback((plate, isPlateValid, refNumb) => {
-    setEnteredPlateAndRef((prevState) => {
-      return { ...prevState, plate, isPlateValid, refNumb };
-    });
-  }, []);
 
   const getClientInfo = useCallback(
     (name, phone, cpf, isNameValid, isPhoneValid) => {
@@ -48,10 +42,11 @@ function NewQuoteForm() {
   }, []);
 
   const getVehicleInfo = useCallback(
-    (make, model, color, year, deliveryDate, infoIsValid) => {
+    (plate, make, model, color, year, deliveryDate, infoIsValid) => {
       setEnteredVehicleInfo((prevState) => {
         return {
           ...prevState,
+          plate,
           make,
           model,
           color,
@@ -91,7 +86,6 @@ function NewQuoteForm() {
     e.preventDefault();
 
     if (
-      !enteredPlateAndRef.isPlateValid ||
       !enteredClientInfo.isNameValid ||
       !enteredClientInfo.isPhoneValid ||
       !enteredVehicleInfo.infoIsValid ||
@@ -103,12 +97,12 @@ function NewQuoteForm() {
     const formatedEnteringDate = new Date().toLocaleDateString("pt-BR");
     const completeDeliveryDate = new Date(enteredVehicleInfo.deliveryDate);
     const formatedDeliveryDate = completeDeliveryDate.toLocaleDateString("pt-BR");
+    
 
     const quoteData = {
       date: formatedEnteringDate,
       formatedDeliveryDate,
-      refNumb: enteredPlateAndRef.refNumb,
-      plate: enteredPlateAndRef.plate,
+      plate: enteredVehicleInfo.plate,
       clientName: enteredClientInfo.name,
       phone: enteredClientInfo.phone,
       CPF: enteredClientInfo.cpf,
@@ -133,7 +127,6 @@ function NewQuoteForm() {
 
   return (
     <form className={classes["form-control"]} id="quote-form">
-      <RefNumAndPlates onGetPlateNumAndRef={getPlateNumAndRef} />
       <ClientInfo onGetClientInfo={getClientInfo} />
       <VehicleType onGetVehicleType={getVehicleType} />
       <VehicleInfo onGetVehicleInfo={getVehicleInfo} />

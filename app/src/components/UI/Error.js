@@ -22,7 +22,7 @@ function Error() {
       })
     );
 
-    navigate("/user", {replace: true})
+    navigate("/login", {replace: true})
   }
 
   return (

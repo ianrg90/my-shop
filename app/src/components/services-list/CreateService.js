@@ -23,7 +23,7 @@ function CreateService(props) {
       return;
     }
 
-    const service = enteredService;
+    const service = enteredService.toLowerCase();
     dispatch(postServiceData(service));
     props.onControlStatus()
     
