@@ -2,9 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const authInitialState = {
     token: null,
-    expiresIn:null,
-    id:null,
-    email: null
+    uuid:null,
 }
 
 const authSlice = createSlice({
@@ -13,9 +11,7 @@ const authSlice = createSlice({
     reducers: {
         setAuthData(state, action){
             state.token = action.payload.authData.idToken
-            state.expiresIn = action.payload.authData.expiresIn
-            state.email = action.payload.authData.email
-            state.id = action.payload.authData.localId
+            state.uuid = action.payload.authData.localId
         }
     }
 })

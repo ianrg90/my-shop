@@ -14,11 +14,10 @@ import classes from "./UserOptionsPage.module.css";
 import LoadingSpinner from "../components/UI/LoadingSpinner";
 import Error from "../components/UI/Error";
 
-//Replace after
-const DUMMY_DATA = "Retocar";
 
 function UserOptionsPage() {
   const uiState = useSelector((state) => state.ui);
+
   const { loading, status } = uiState;
   const dispatch = useDispatch();
 
@@ -31,7 +30,7 @@ function UserOptionsPage() {
 
   return (
     <Fragment>
-      {!loading && !hasError && <Header text={DUMMY_DATA} />}
+      {!loading && !hasError && <Header text= "Black Shed" />}
       <Main>
         {!loading && !hasError && (
           <div className={classes["user-menu"]}>

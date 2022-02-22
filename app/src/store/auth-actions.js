@@ -59,7 +59,7 @@ export const sendUserSigninRequest = (data) => {
         })
       );
   
-      async function signupUser() {
+      async function signinUser() {
         const response = await fetch(
           `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${env.API_KEY}`,
           {
@@ -84,7 +84,7 @@ export const sendUserSigninRequest = (data) => {
       }
   
       try{
-        const authData =  await signupUser()
+        const authData =  await signinUser()
         dispatch(authActions.setAuthData({
             authData
         }))
