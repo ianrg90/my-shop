@@ -1,7 +1,7 @@
 import { uiActions } from "./ui-slice";
 import {serviceActions} from "./services-slice"
 
-export const postServiceData = (serviceData) => {
+export const postServiceData = (serviceData, uuid) => {
   return async (dispatch) => {
     dispatch(
       uiActions.changeUiState({
@@ -13,7 +13,7 @@ export const postServiceData = (serviceData) => {
 
     async function postService() {
       const response = await fetch(
-        "https://my-shop-2-da3a3-default-rtdb.firebaseio.com/services.json",
+        `https://my-shop-2-da3a3-default-rtdb.firebaseio.com/${uuid}/services.json`,
         {
           method: "POST",
           body: JSON.stringify(serviceData),
@@ -49,7 +49,7 @@ export const postServiceData = (serviceData) => {
   };
 };
 
-export const fetchServicesData = () => {
+export const fetchServicesData = (uuid) => {
     return async (dispatch) => {
       dispatch(
         uiActions.changeUiState({
@@ -61,7 +61,7 @@ export const fetchServicesData = () => {
   
       const fetchServices = async () => {
         const response = await fetch(
-          "https://my-shop-2-da3a3-default-rtdb.firebaseio.com/services.json"
+          `https://my-shop-2-da3a3-default-rtdb.firebaseio.com/${uuid}/services.json`
         );
   
         if (!response.ok) {
@@ -100,7 +100,7 @@ export const fetchServicesData = () => {
     };
   };
 
-  export const deleteServiceData = (id) => {
+  export const deleteServiceData = (id, uuid) => {
     return async (dispatch) => {
       dispatch(
         uiActions.changeUiState({
@@ -112,7 +112,7 @@ export const fetchServicesData = () => {
   
       async function deleteService() {
         const response = await fetch(
-          `https://my-shop-2-da3a3-default-rtdb.firebaseio.com/services/${id}.json`,
+          `https://my-shop-2-da3a3-default-rtdb.firebaseio.com/${uuid}/services/${id}.json`,
           {
             method: "DELETE",
           }

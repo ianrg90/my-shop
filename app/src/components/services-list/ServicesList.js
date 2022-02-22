@@ -1,14 +1,15 @@
 import Card from "../UI/Card";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deleteServiceData } from "../../store/service-actions";
 import classes from "./ServicesList.module.css";
 import Button from "../UI/Button";
 
 function ServicesList(props) {
   const dispatch = useDispatch()
+  const uuid = useSelector(state => state.auth.uuid)
 
   function deleteService(id){
-    dispatch(deleteServiceData(id))
+    dispatch(deleteServiceData(id, uuid))
     props.onControlStatus()
   }
 

@@ -25,6 +25,8 @@ function NewQuoteForm() {
   const damages = useSelector((state) =>
     state.damageList.damages.filter((damage) => damage.typeOfDamage !== "")
   );
+  const authState = useSelector(state=> state.auth)
+  const {uuid} = authState
   const navigate = useNavigate();
 
 
@@ -120,7 +122,7 @@ function NewQuoteForm() {
     };
 
     //use the quote action function to post on backend
-    dispatch(postQuoteData(quoteData));
+    dispatch(postQuoteData(quoteData, uuid));
 
     navigate("/user", { replace: true });
   }

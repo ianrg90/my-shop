@@ -7,7 +7,7 @@ import UserOptionsPage from "./pages/UserOptionsPage";
 import NewQuotePage from "./pages/NewQuotePage";
 import QuoteListPage from "./pages/QuoteListPage";
 import QuoteDetailsPage from "./pages/QuoteDetailsPage";
-
+import LoadingSpinner from "./components/UI/LoadingSpinner"
 
 function App() {
   const authState = useSelector((state) => state.auth);
@@ -15,13 +15,13 @@ function App() {
   const { loading} = uiState;
   const { token } = authState;
 
-  
+  //make request under the user uuid
 
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/login" />} />
       <Route path="/login" element={<LoginPage />} />
-      {loading && <Route path="/user" element = {"loading....."}/>}
+      {loading && <Route path="/user" element = {<LoadingSpinner/>}/>}
       {token && (
         <Fragment>
           <Route path="/user" element={<UserOptionsPage />} />

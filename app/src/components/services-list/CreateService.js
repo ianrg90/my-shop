@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux"; 
+import { useDispatch, useSelector } from "react-redux"; 
 import Card from "../UI/Card";
 import Button from "../UI/Button";
 import classes from "./CreateService.module.css";
@@ -7,6 +7,7 @@ import { postServiceData } from "../../store/service-actions";
 
 function CreateService(props) {
   const dispatch = useDispatch();
+  const uuid = useSelector(state => state.auth.uuid)
 
   const {
     enteredValue: enteredService,
@@ -24,7 +25,7 @@ function CreateService(props) {
     }
 
     const service = enteredService.toLowerCase();
-    dispatch(postServiceData(service));
+    dispatch(postServiceData(service, uuid));
     props.onControlStatus()
     
     resetService();

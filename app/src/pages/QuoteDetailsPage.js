@@ -17,6 +17,7 @@ function QuoteDetailsPage() {
   const [showConfirm, setShowConfirm] = useState(false);
   const [currentQuote, setCurrentQuote] = useState([]);
   const quote = useSelector((state) => state.quotes.quoteList);
+  const uuid = useSelector(state => state.auth.uuid)
   const params = useParams();
   const quoteID = params.quoteID;
   const dispatch = useDispatch();
@@ -69,7 +70,7 @@ function QuoteDetailsPage() {
     if (e.target.value === "") {
       return;
     }
-    dispatch(updateStatusData(quoteID, e.target.value));
+    dispatch(updateStatusData(quoteID, uuid ,e.target.value));
     navigate("/user", { replace: true });
   }
 
@@ -82,7 +83,7 @@ function QuoteDetailsPage() {
 
   //delete quote
   function deleteQuote() {
-    dispatch(deleteQuoteData(quoteID));
+    dispatch(deleteQuoteData(quoteID, uuid));
     navigate("/user", { replace: true });
   }
 
@@ -202,8 +203,7 @@ function QuoteDetailsPage() {
               <label htmlFor="status">Status: </label>
               <select
                 name="status"
-                defaultValue="pendente"
-                onChange={handleStatus}
+                onBlur={handleStatus}
               >
                 <option value="pendente">Pendente</option>
                 <option value="aprovado">Aprovado</option>

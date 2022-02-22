@@ -19,10 +19,12 @@ function QuoteListPage() {
   const dispatch = useDispatch();
   const quoteList = useSelector((state) => state.quotes.quoteList);
   const { loading, status } = useSelector((state) => state.ui);
+  const authState = useSelector(state => state.auth)
+  const {uuid} = authState
 
   useEffect(() => {
-    dispatch(fetchQuoteData());
-  }, [dispatch]);
+    dispatch(fetchQuoteData(uuid));
+  }, [dispatch, uuid]);
 
   let quoteListArr = [];
   if (!loading) {

@@ -10,6 +10,7 @@ import { v4 as quoteId } from "uuid";
 function NewService(props) {
   const dispatch = useDispatch();
   const serviceList = useSelector((state) => state.services.servicesList);
+  const uuid = useSelector(state => state.auth.uuid)
   const uniqueId = quoteId();
   const shortenedId = uniqueId.slice(0, 8);
 
@@ -55,8 +56,8 @@ function NewService(props) {
 
   //Fetch the user saved services and populate the dropdown
   useEffect(() => {
-    dispatch(fetchServicesData());
-  }, [dispatch]);
+    dispatch(fetchServicesData(uuid));
+  }, [dispatch, uuid]);
 
   const serviceOptions = serviceList.map((service) => {
     return (

@@ -2,7 +2,7 @@ import { uiActions } from "./ui-slice";
 import { quoteActions } from "./quote-slice";
 
 //action creator to dispatch async fucntions
-export const postQuoteData = (quoteData) => {
+export const postQuoteData = (quoteData, uuid) => {
   return async (dispatch) => {
     dispatch(
       uiActions.changeUiState({
@@ -14,7 +14,7 @@ export const postQuoteData = (quoteData) => {
 
     async function sendRequest() {
       const response = await fetch(
-        "https://my-shop-2-da3a3-default-rtdb.firebaseio.com/quotes.json",
+        `https://my-shop-2-da3a3-default-rtdb.firebaseio.com/${uuid}/quotes.json`,
         {
           method: "POST",
           body: JSON.stringify(quoteData),
@@ -47,7 +47,7 @@ export const postQuoteData = (quoteData) => {
   };
 };
 
-export const fetchQuoteData = () => {
+export const fetchQuoteData = (uuid) => {
   return async (dispatch) => {
     dispatch(
       uiActions.changeUiState({
@@ -59,7 +59,7 @@ export const fetchQuoteData = () => {
 
     const fetchData = async () => {
       const response = await fetch(
-        "https://my-shop-2-da3a3-default-rtdb.firebaseio.com/quotes.json"
+        `https://my-shop-2-da3a3-default-rtdb.firebaseio.com/${uuid}/quotes.json`
       );
 
       if (!response.ok) {
@@ -97,7 +97,7 @@ export const fetchQuoteData = () => {
   };
 };
 
-export const deleteQuoteData = (id) => {
+export const deleteQuoteData = (id, uuid) => {
   return async (dispatch) => {
     dispatch(
       uiActions.changeUiState({
@@ -109,7 +109,7 @@ export const deleteQuoteData = (id) => {
 
     async function deleteData() {
       const response = await fetch(
-        `https://my-shop-2-da3a3-default-rtdb.firebaseio.com/quotes/${id}.json`,
+        `https://my-shop-2-da3a3-default-rtdb.firebaseio.com/${uuid}/quotes/${id}.json`,
         {
           method: "DELETE",
         }
@@ -141,7 +141,7 @@ export const deleteQuoteData = (id) => {
   };
 };
 
-export const updateStatusData = (id, payload) => {
+export const updateStatusData = (id, uuid ,payload) => {
   return async (dispatch) => {
     dispatch(
       uiActions.changeUiState({
@@ -153,7 +153,7 @@ export const updateStatusData = (id, payload) => {
 
     async function updateData() {
       const response = await fetch(
-        `https://my-shop-2-da3a3-default-rtdb.firebaseio.com/quotes/${id}/status.json`,
+        `https://my-shop-2-da3a3-default-rtdb.firebaseio.com/${uuid}/quotes/${id}/status.json`,
         {
           method: "PUT",
           body: JSON.stringify(payload),
