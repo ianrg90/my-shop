@@ -48,12 +48,16 @@
   color: red;
 }
 
-.obs {
-  font-size: 0.7rem;
+.obs{
+  text-align: justify;
 }
 
-.description {
-  font-size: 0.6rem;
+.obs p{
+  font-size: 0.9rem;
+}
+
+.obs span{
+  font-size: 0.8rem;
   
 }
 

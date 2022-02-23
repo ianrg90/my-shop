@@ -17,6 +17,8 @@ function DamagesList() {
         <div className={classes["checklist-area"]}>
           <InputRow perspective="Frente" area="Farol(esq)" />
           <InputRow perspective="Frente" area="Farol(dir)" />
+          <InputRow perspective="Frente" area="Coluna(esq)" />
+          <InputRow perspective="Frente" area="Coluna(dir)" />
           <InputRow perspective="Frente" area="Parachoque lado(esq)" />
           <InputRow perspective="Frente" area="Parachoque lado(dir)" />
           <InputRow perspective="Frente" area="Parachoque todo" />
@@ -32,6 +34,8 @@ function DamagesList() {
         <div className={classes["checklist-area"]}>
           <InputRow perspective="Traseira" area="Lanterna(esq)" />
           <InputRow perspective="Traseira" area="Lanterna(dir)" />
+          <InputRow perspective="Traseira" area="Coluna(esq)" />
+          <InputRow perspective="Traseira" area="Coluna(dir)" />
           <InputRow perspective="Traseira" area="Parachoque lado(esq)" />
           <InputRow perspective="Traseira" area="Parachoque lado(dir)" />
           <InputRow perspective="Traseira" area="Parachoque todo" />
@@ -46,6 +50,7 @@ function DamagesList() {
         <div className={classes["checklist-area"]}>
           <InputRow perspective="Lado esquerdo" area="Paralama(dia)" />
           <InputRow perspective="Lado esquerdo" area="Retrovisor" />
+          <InputRow perspective="Lado esquerdo" area="Coluna" />
           <InputRow perspective="Lado esquerdo" area="Porta(dia)" />
           <InputRow perspective="Lado esquerdo" area="Roda(dia)" />
           <InputRow perspective="Lado esquerdo" area="Caixa de ar" />
@@ -62,6 +67,7 @@ function DamagesList() {
         <div className={classes["checklist-area"]}>
           <InputRow perspective="Lado direito" area="Paralama(dia)" />
           <InputRow perspective="Lado direito" area="Retrovisor" />
+          <InputRow perspective="Lado direito" area="Coluna" />
           <InputRow perspective="Lado direito" area="Porta(dia)" />
           <InputRow perspective="Lado direito" area="Roda(dia)" />
           <InputRow perspective="Lado direito" area="Caixa de ar" />

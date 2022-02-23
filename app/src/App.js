@@ -15,8 +15,6 @@ function App() {
   const { loading} = uiState;
   const { token } = authState;
 
-  //make request under the user uuid
-
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/login" />} />

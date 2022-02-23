@@ -17,7 +17,7 @@ function QuoteDetailsPage() {
   const [showConfirm, setShowConfirm] = useState(false);
   const [currentQuote, setCurrentQuote] = useState([]);
   const quote = useSelector((state) => state.quotes.quoteList);
-  const uuid = useSelector(state => state.auth.uuid)
+  const uuid = useSelector((state) => state.auth.uuid);
   const params = useParams();
   const quoteID = params.quoteID;
   const dispatch = useDispatch();
@@ -70,7 +70,7 @@ function QuoteDetailsPage() {
     if (e.target.value === "") {
       return;
     }
-    dispatch(updateStatusData(quoteID, uuid ,e.target.value));
+    dispatch(updateStatusData(quoteID, uuid, e.target.value));
     navigate("/user", { replace: true });
   }
 
@@ -107,7 +107,7 @@ function QuoteDetailsPage() {
 
   return (
     <Fragment>
-      <Header text="Detalhes do orçamento" />
+      <Header text="Ficha Orçamento" />
       <Main>
         {!showConfirm && (
           <div>
@@ -186,25 +186,24 @@ function QuoteDetailsPage() {
             </div>
             {currentQuote.obs !== "" && (
               <Card>
-                <p className={classes.obs}>Obs: </p>
-                <span className={classes.description}>{currentQuote.obs}</span>
+                <div className={classes.obs}>
+                  <p>Obs: </p>
+                  <span>{currentQuote.obs}</span>
+                </div>
               </Card>
             )}
             {currentQuote.parts !== "" && (
               <Card>
-                <p className={classes.obs}>Peças: </p>
-                <span className={classes.description}>
-                  {currentQuote.parts}
-                </span>
+                <div className={classes.obs}>
+                  <p>Peças: </p>
+                  <span>{currentQuote.parts}</span>
+                </div>
               </Card>
             )}
 
             <div className={classes.status}>
               <label htmlFor="status">Status: </label>
-              <select
-                name="status"
-                onBlur={handleStatus}
-              >
+              <select name="status" onBlur={handleStatus}>
                 <option value="pendente">Pendente</option>
                 <option value="aprovado">Aprovado</option>
                 <option value="lanternagem">Lanternagem</option>
