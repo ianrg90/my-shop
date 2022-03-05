@@ -30,7 +30,7 @@ function UserOptionsPage() {
 
   return (
     <Fragment>
-      {!loading && !hasError && <Header text= "Black Shed" />}
+      {!loading && !hasError && <Header text= "Retocar" />}
       <Main>
         {!loading && !hasError && (
           <div className={classes["user-menu"]}>

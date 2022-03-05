@@ -183,24 +183,24 @@ function QuoteDetailsPage() {
                 <hr />
                 <h1 className={classes.total}>Total: {currentQuote.total}</h1>
               </Card>
-            </div>
-            {currentQuote.obs !== "" && (
-              <Card>
-                <div className={classes.obs}>
-                  <p>Obs: </p>
-                  <span>{currentQuote.obs}</span>
-                </div>
-              </Card>
-            )}
-            {currentQuote.parts !== "" && (
-              <Card>
-                <div className={classes.obs}>
-                  <p>Peças: </p>
-                  <span>{currentQuote.parts}</span>
-                </div>
-              </Card>
-            )}
 
+              {currentQuote.obs !== "" && (
+                <Card>
+                  <div className={classes.obs}>
+                    <p>Obs: </p>
+                    <span>{currentQuote.obs}</span>
+                  </div>
+                </Card>
+              )}
+              {currentQuote.parts !== "" && (
+                <Card>
+                  <div className={classes.obs}>
+                    <p>Peças: </p>
+                    <span>{currentQuote.parts}</span>
+                  </div>
+                </Card>
+              )}
+            </div>
             <div className={classes.status}>
               <label htmlFor="status">Status: </label>
               <select name="status" onBlur={handleStatus}>

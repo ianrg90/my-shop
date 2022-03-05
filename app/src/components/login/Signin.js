@@ -53,7 +53,7 @@ function Signin(props) {
       <Header text="Signin" />
       <Main>
         <div className={classes.logo}>
-          <h1>Black Shed</h1>
+          <h1>Retocar</h1>
         </div>
         <form>
           <div className={classes["form-control"]}>
