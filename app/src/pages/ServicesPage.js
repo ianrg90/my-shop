@@ -19,7 +19,7 @@ function ServicesPage() {
   useEffect(() => {
     dispatch(fetchServicesData(uuid));
     setServiceCreated(false)
-  }, [dispatch, serviceCreated]);
+  }, [dispatch, serviceCreated, uuid]);
 
   function controlStatus(){
     setServiceCreated(true)

@@ -10,9 +10,11 @@ import Button from "../components/UI/Button";
 import { deleteQuoteData, updateStatusData } from "../store/quote-actions";
 import { formatPlate, formatPhone, formatCPF } from "../utils/FormatDataUtils";
 import ConfirmationPage from "../components/UI/ConfirmationPage";
+import DamagesLegend from "../components/damages form/DamagesLegend";
 
 function QuoteDetailsPage() {
   const screenShotRef = createRef(null);
+  const [isDownloaded, setIsDownloaded] = useState(false);
   const [image, takeScreenShot] = useScreenshot();
   const [showConfirm, setShowConfirm] = useState(false);
   const [currentQuote, setCurrentQuote] = useState([]);
@@ -22,6 +24,7 @@ function QuoteDetailsPage() {
   const quoteID = params.quoteID;
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const number = "55" + currentQuote.phone;
 
   //Need to find a way of just load the page when the currenquote is ready
   useEffect(() => {
@@ -102,8 +105,19 @@ function QuoteDetailsPage() {
   useEffect(() => {
     if (image) {
       download(image, currentQuote.clientName, "png");
+      setIsDownloaded(true);
     }
   }, [image, currentQuote]);
+
+  //Alow the image to be downloaded before redirecting to whatsapp chat
+  useEffect(() => {
+    if (isDownloaded) {
+      const whatsapp = document.createElement("a");
+      whatsapp.href = `https://wa.me/${number}`;
+      whatsapp.target = "_blank"
+      whatsapp.click();
+    }
+  }, [isDownloaded, number]);
 
   return (
     <Fragment>
@@ -172,6 +186,7 @@ function QuoteDetailsPage() {
               </Card>
               {damages && (
                 <Card>
+                  <DamagesLegend />
                   <h1>Relatório de danos</h1>
                   {damages}
                 </Card>
