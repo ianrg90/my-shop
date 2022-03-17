@@ -13,7 +13,7 @@ export const postServiceData = (serviceData, uuid) => {
 
     async function postService() {
       const response = await fetch(
-        `https://my-shop-2-da3a3-default-rtdb.firebaseio.com/${uuid}/services.json`,
+        `https://my-shop3-b2989-default-rtdb.firebaseio.com/${uuid}/services.json`,
         {
           method: "POST",
           body: JSON.stringify(serviceData),
@@ -61,7 +61,7 @@ export const fetchServicesData = (uuid) => {
   
       const fetchServices = async () => {
         const response = await fetch(
-          `https://my-shop-2-da3a3-default-rtdb.firebaseio.com/${uuid}/services.json`
+          `https://my-shop3-b2989-default-rtdb.firebaseio.com/${uuid}/services.json`
         );
   
         if (!response.ok) {
@@ -112,7 +112,7 @@ export const fetchServicesData = (uuid) => {
   
       async function deleteService() {
         const response = await fetch(
-          `https://my-shop-2-da3a3-default-rtdb.firebaseio.com/${uuid}/services/${id}.json`,
+          `https://my-shop3-b2989-default-rtdb.firebaseio.com/${uuid}/services/${id}.json`,
           {
             method: "DELETE",
           }

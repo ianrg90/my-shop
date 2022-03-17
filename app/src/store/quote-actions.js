@@ -14,7 +14,7 @@ export const postQuoteData = (quoteData, uuid) => {
 
     async function sendRequest() {
       const response = await fetch(
-        `https://my-shop-2-da3a3-default-rtdb.firebaseio.com/${uuid}/quotes.json`,
+        `https://my-shop3-b2989-default-rtdb.firebaseio.com/${uuid}/quotes.json`,
         {
           method: "POST",
           body: JSON.stringify(quoteData),
@@ -59,7 +59,7 @@ export const fetchQuoteData = (uuid) => {
 
     const fetchData = async () => {
       const response = await fetch(
-        `https://my-shop-2-da3a3-default-rtdb.firebaseio.com/${uuid}/quotes.json`
+        `https://my-shop3-b2989-default-rtdb.firebaseio.com/${uuid}/quotes.json`
       );
 
       if (!response.ok) {
@@ -109,7 +109,7 @@ export const deleteQuoteData = (id, uuid) => {
 
     async function deleteData() {
       const response = await fetch(
-        `https://my-shop-2-da3a3-default-rtdb.firebaseio.com/${uuid}/quotes/${id}.json`,
+        `https://my-shop3-b2989-default-rtdb.firebaseio.com/${uuid}/quotes/${id}.json`,
         {
           method: "DELETE",
         }
@@ -153,7 +153,7 @@ export const updateStatusData = (id, uuid ,payload) => {
 
     async function updateData() {
       const response = await fetch(
-        `https://my-shop-2-da3a3-default-rtdb.firebaseio.com/${uuid}/quotes/${id}/status.json`,
+        `https://my-shop3-b2989-default-rtdb.firebaseio.com/${uuid}/quotes/${id}/status.json`,
         {
           method: "PUT",
           body: JSON.stringify(payload),
