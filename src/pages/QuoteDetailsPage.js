@@ -128,7 +128,7 @@ function QuoteDetailsPage() {
             <div ref={screenShotRef}>
               <Card>
                 <div className={classes.header}>
-                  <h1 className={classes.logo}>Black Shed</h1>
+                  <h1 className={classes.logo}>Retocar</h1>
                   <h1 className={classes.date}>{currentQuote.date}</h1>
                 </div>
               </Card>
