@@ -1,3 +1,33 @@
 .main{
     margin: 0 1rem;
 }
+
+@media (min-width: 550px){
+    .main{
+        margin: 0 4rem;
+    }
+}
+
+@media (min-width: 650px){
+    .main{
+        margin: 0 7rem;
+    }
+}
+
+@media (min-width: 800px){
+    .main{
+        margin: 0 9rem;
+    }
+}
+
+@media (min-width: 1000px){
+    .main{
+        margin: 0 11rem;
+    }
+}
+
+@media (min-width: 1200px){
+    .main{
+        margin: 0 20rem;
+    }
+}
