@@ -10,70 +10,70 @@ function DamagesList() {
   return (
     <Card>
       <div className={classes["damage-control"]}>
-        <h3>Frente</h3>
+        <h3>Front</h3>
         <div className={classes["smaller-image"]}>
           <img src={frontViewImg} alt="frontal car perspective" />
         </div>
         <div className={classes["checklist-area"]}>
-          <InputRow perspective="Frente" area="Farol(esq)" />
-          <InputRow perspective="Frente" area="Farol(dir)" />
-          <InputRow perspective="Frente" area="Coluna(esq)" />
-          <InputRow perspective="Frente" area="Coluna(dir)" />
-          <InputRow perspective="Frente" area="Parachoque lado(esq)" />
-          <InputRow perspective="Frente" area="Parachoque lado(dir)" />
-          <InputRow perspective="Frente" area="Parachoque todo" />
-          <InputRow perspective="Frente" area="Capô" />
-          <InputRow perspective="Frente" area="Teto" />
+          <InputRow perspective="Front" area="Left headlight" />
+          <InputRow perspective="Front" area="Right headlight" />
+          <InputRow perspective="Front" area="Left column" />
+          <InputRow perspective="Front" area="Right column" />
+          <InputRow perspective="Front" area="Bumber right side" />
+          <InputRow perspective="Front" area="Bumper left side" />
+          <InputRow perspective="Front" area="All bumper" />
+          <InputRow perspective="Front" area="Hood" />
+          <InputRow perspective="Front" area="Roof" />
         </div>
       </div>
       <div className={classes["damage-control"]}>
-        <h3>Traseira</h3>
+        <h3>Rear</h3>
         <div className={classes["smaller-image"]}>
           <img src={backViewImg} alt="car back view perspective" />
         </div>
         <div className={classes["checklist-area"]}>
-          <InputRow perspective="Traseira" area="Lanterna(esq)" />
-          <InputRow perspective="Traseira" area="Lanterna(dir)" />
-          <InputRow perspective="Traseira" area="Coluna(esq)" />
-          <InputRow perspective="Traseira" area="Coluna(dir)" />
-          <InputRow perspective="Traseira" area="Parachoque lado(esq)" />
-          <InputRow perspective="Traseira" area="Parachoque lado(dir)" />
-          <InputRow perspective="Traseira" area="Parachoque todo" />
-          <InputRow perspective="Traseira" area="Porta malas" />
+          <InputRow perspective="Rear" area="Left tailight" />
+          <InputRow perspective="Rear" area="Right tailight" />
+          <InputRow perspective="Rear" area="Left column" />
+          <InputRow perspective="Rear" area="Right column" />
+          <InputRow perspective="Rear" area="Bumper left side" />
+          <InputRow perspective="Rear" area="Bumper right side" />
+          <InputRow perspective="Rear" area="All bumber" />
+          <InputRow perspective="Rear" area="Trunk" />
         </div>
       </div>
       <div className={classes["damage-control"]}>
-        <h3>Lado esquerdo</h3>
+        <h3>Left side</h3>
         <div className={classes["bigger-image"]}>
           <img src={leftViewImg} alt="car left view perspective" />
         </div>
         <div className={classes["checklist-area"]}>
-          <InputRow perspective="Lado esquerdo" area="Paralama(dia)" />
-          <InputRow perspective="Lado esquerdo" area="Retrovisor" />
-          <InputRow perspective="Lado esquerdo" area="Coluna" />
-          <InputRow perspective="Lado esquerdo" area="Porta(dia)" />
-          <InputRow perspective="Lado esquerdo" area="Roda(dia)" />
-          <InputRow perspective="Lado esquerdo" area="Caixa de ar" />
-          <InputRow perspective="Lado esquerdo" area="Porta(tras)" />
-          <InputRow perspective="Lado esquerdo" area="Roda(tras)" />
-          <InputRow perspective="Lado esquerdo" area="Paralama(tras)" />
+          <InputRow perspective="Left side" area="Front mud flap" />
+          <InputRow perspective="Left side" area="Rear view mirror" />
+          <InputRow perspective="Left side" area="Column" />
+          <InputRow perspective="Left side" area="Front door" />
+          <InputRow perspective="Left side" area="Front wheel" />
+          <InputRow perspective="Left side" area="Air box" />
+          <InputRow perspective="Left side" area="Rear door" />
+          <InputRow perspective="Left side" area="Rear wheel" />
+          <InputRow perspective="Left side" area="Rear mud flap" />
         </div>
       </div>
       <div className={classes["damage-control"]}>
-        <h3>Lado direito</h3>
+        <h3>Right side</h3>
         <div className={classes["bigger-image"]}>
           <img src={rigtViewImg} alt="car left view perspective" />
         </div>
         <div className={classes["checklist-area"]}>
-          <InputRow perspective="Lado direito" area="Paralama(dia)" />
-          <InputRow perspective="Lado direito" area="Retrovisor" />
-          <InputRow perspective="Lado direito" area="Coluna" />
-          <InputRow perspective="Lado direito" area="Porta(dia)" />
-          <InputRow perspective="Lado direito" area="Roda(dia)" />
-          <InputRow perspective="Lado direito" area="Caixa de ar" />
-          <InputRow perspective="Lado direito" area="Porta(tras)" />
-          <InputRow perspective="Lado direito" area="Roda(tras)" />
-          <InputRow perspective="Lado direito" area="Paralama(tras)" />
+          <InputRow perspective="Right side" area="Front mud flap" />
+          <InputRow perspective="Right side" area="Rear view mirror" />
+          <InputRow perspective="Right side" area="Column" />
+          <InputRow perspective="Right side" area="Front door" />
+          <InputRow perspective="Right side" area="Front wheel" />
+          <InputRow perspective="Right side" area="Air box" />
+          <InputRow perspective="Right side" area="Rear door" />
+          <InputRow perspective="Right side" area="Rear wheel" />
+          <InputRow perspective="Right side" area="Rear mud flap" />
         </div>
       </div>
     </Card>

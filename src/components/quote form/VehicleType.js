@@ -17,47 +17,47 @@ function VehicleType(props){
     return (
         <Card>
         <div className={classes["vehicle-type"]}>
-          <p>Porte do veículo</p>
+          <p>Vehicle type</p>
           <div className={classes["vehicle-type-list"]}>
             <div className={classes["vehicle-type-item"]}>
               <input
                 type="radio"
                 id="small"
                 name="type"
-                value="pequeno"
+                value="small"
                 onChange={handleType}
               />
-              <label htmlFor="small">Pequeno</label>
+              <label htmlFor="small">Small</label>
             </div>
             <div className={classes["vehicle-type-item"]}>
               <input
                 type="radio"
                 id="medium"
                 name="type"
-                value="médio"
+                value="medium"
                 onChange={handleType}
               />
-              <label htmlFor="medium">Médio</label>
+              <label htmlFor="medium">Medium</label>
             </div>
             <div className={classes["vehicle-type-item"]}>
               <input
                 type="radio"
                 id="large"
                 name="type"
-                value="grande"
+                value="Large"
                 onChange={handleType}
               />
-              <label htmlFor="large">Grande</label>
+              <label htmlFor="large">Large</label>
             </div>
             <div className={classes["vehicle-type-item"]}>
               <input
                 type="radio"
                 id="bike"
                 name="type"
-                value="moto"
+                value="bike"
                 onChange={handleType}
               />
-              <label htmlFor="bike">Moto</label>
+              <label htmlFor="bike">Bike</label>
             </div>
             <div className={classes["vehicle-type-item"]}>
               <input

@@ -13,13 +13,16 @@ function ServicesPage() {
   const servicesList = useSelector((state) => state.services.servicesList);
   const uiState = useSelector((state) => state.ui);
   const { loading, status } = uiState;
-  const uuid = useSelector(state => state.auth.uuid)
+  const authState = useSelector(state => state.auth)
+  const {uuid, token} = authState
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchServicesData(uuid));
+    dispatch(fetchServicesData(uuid, token));
     setServiceCreated(false)
-  }, [dispatch, serviceCreated, uuid]);
+  }, [dispatch, serviceCreated, uuid, token]);
+
+  console.log(serviceCreated)
 
   function controlStatus(){
     setServiceCreated(true)

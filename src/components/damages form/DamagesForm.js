@@ -26,7 +26,7 @@ function DamagesForm(props) {
       {damages.length !== 0 && <Card>{selectedDamages}</Card>}
       <DamagesLegend />
       <DamagesList />
-      <Button text = "Finalizar danos" type = "submit" onClick = {submitDamageChecklist}/>
+      <Button text = "Submit damages" type = "submit" onClick = {submitDamageChecklist}/>
     </form>
   );
 }

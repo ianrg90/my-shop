@@ -9,18 +9,21 @@ import QuoteListPage from "./pages/QuoteListPage";
 import QuoteDetailsPage from "./pages/QuoteDetailsPage";
 import LoadingSpinner from "./components/UI/LoadingSpinner"
 
+
 function App() {
   const authState = useSelector((state) => state.auth);
   const uiState = useSelector((state) => state.ui);
   const { loading} = uiState;
   const { token } = authState;
 
+  const isUserLogged = !!token
+
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/login" />} />
       <Route path="/login" element={<LoginPage />} />
       {loading && <Route path="/user" element = {<LoadingSpinner/>}/>}
-      {token && (
+      {isUserLogged && (
         <Fragment>
           <Route path="/user" element={<UserOptionsPage />} />
           <Route path="/user/services" element={<ServicesPage />} />
@@ -29,7 +32,7 @@ function App() {
           <Route path="/user/quote-list/:quoteID" element={<QuoteDetailsPage />}/>
         </Fragment>
       )}
-      {!token && <Route path="*" element = {<Navigate to="/login"/>}/>}
+      {!isUserLogged && <Route path="*" element = {<Navigate to="/login"/>}/>}
     </Routes>
   );
 }

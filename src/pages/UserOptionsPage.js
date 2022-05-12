@@ -30,26 +30,26 @@ function UserOptionsPage() {
 
   return (
     <Fragment>
-      {!loading && !hasError && <Header text= "Retocar" />}
+      {!loading && !hasError && <Header text= "My shop" />}
       <Main>
         {!loading && !hasError && (
           <div className={classes["user-menu"]}>
              <div className={classes["user-menu-item"]}>
-              <Link to="/user/services">
+              <Link to="/user/services"  >
                 <FontAwesomeIcon icon={faWrench} size="2x" />
-                <p>Criar Serviços</p>
+                <p>Create new service</p>
               </Link>
             </div>
             <div className={classes["user-menu-item"]}>
               <Link to="/user/new-quote">
                 <FontAwesomeIcon icon={faDollarSign} size="2x" />
-                <p>Criar orçamento</p>
+                <p>Create new quote</p>
               </Link>
             </div>
             <div className={classes["user-menu-item"]}>
               <Link to="/user/quote-list">
                 <FontAwesomeIcon icon={faArrowAltCircleRight} size="2x" />
-                <p>Ver orçamentos</p>
+                <p>See all quotes</p>
               </Link>
             </div>
           </div>

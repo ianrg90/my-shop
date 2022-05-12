@@ -24,19 +24,19 @@ function ObservationsAndParts(props) {
             name="obs"
             form="quote-form"
             rows={4}
-            placeholder="Escreva suas observaçoes aqui ..."
+            placeholder="Observations ..."
             onChange={handleObs}
           ></textarea>
         </div>
       </Card>
       <Card>
         <div className={classes.observations}>
-          <label htmlFor="parts">Peças a trocar:</label>
+          <label htmlFor="parts">Parts to replace:</label>
           <textarea
             name="parts"
             form="quote-form"
             rows={4}
-            placeholder="Digite as peças aqui ..."
+            placeholder="Parts to replace ..."
             onChange={handleParts}
           ></textarea>
         </div>

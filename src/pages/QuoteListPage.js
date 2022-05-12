@@ -20,11 +20,12 @@ function QuoteListPage() {
   const quoteList = useSelector((state) => state.quotes.quoteList);
   const { loading, status } = useSelector((state) => state.ui);
   const authState = useSelector(state => state.auth)
-  const {uuid} = authState
+  const {uuid, token} = authState
 
   useEffect(() => {
-    dispatch(fetchQuoteData(uuid));
-  }, [dispatch, uuid]);
+    dispatch(fetchQuoteData(uuid, token));
+  }, [dispatch, uuid, token]);
+
 
   let quoteListArr = [];
   if (!loading) {
@@ -106,19 +107,19 @@ function QuoteListPage() {
       {loading && status !== "Error!" && <LoadingSpinner />}
       {!loading && status !== "Error!" && (
         <Fragment>
-          <Header text="Orçamentos" />
+          <Header text="Quotes" />
           <Main>
             <Card>
               <div className={classes.filter}>
                 <div>
-                  <label htmlFor="type of filter">Filtrar por: </label>
+                  <label htmlFor="type of filter">Filter by: </label>
                   <select id="type of filter" onChange={getSearchParams}>
-                    <option value="name">Nome</option>
-                    <option value="plate">Placa</option>
+                    <option value="name">Name</option>
+                    <option value="plate">Plates</option>
                   </select>
                 </div>
                 <input
-                  placeholder="Digite aqui sua busca..."
+                  placeholder="Type your search here..."
                   onChange={filterList}
                 />
               </div>
@@ -128,7 +129,7 @@ function QuoteListPage() {
             )}
             {isNoMatch && (
               <div className={classes["no-match"]}>
-                <p>Nenhum item corresponde a sua pesquisa</p>
+                <p>No items match your search</p>
               </div>
             )}
           </Main>

@@ -2,7 +2,7 @@ import { uiActions } from "./ui-slice";
 import { quoteActions } from "./quote-slice";
 
 //action creator to dispatch async fucntions
-export const postQuoteData = (quoteData, uuid) => {
+export const postQuoteData = (quoteData, uuid, token) => {
   return async (dispatch) => {
     dispatch(
       uiActions.changeUiState({
@@ -14,7 +14,7 @@ export const postQuoteData = (quoteData, uuid) => {
 
     async function sendRequest() {
       const response = await fetch(
-        `https://my-shop3-b2989-default-rtdb.firebaseio.com/${uuid}/quotes.json`,
+        `https://my-shop4-default-rtdb.firebaseio.com/${uuid}/quotes.json?auth=${token}`,
         {
           method: "POST",
           body: JSON.stringify(quoteData),
@@ -47,7 +47,7 @@ export const postQuoteData = (quoteData, uuid) => {
   };
 };
 
-export const fetchQuoteData = (uuid) => {
+export const fetchQuoteData = (uuid, token) => {
   return async (dispatch) => {
     dispatch(
       uiActions.changeUiState({
@@ -59,7 +59,7 @@ export const fetchQuoteData = (uuid) => {
 
     const fetchData = async () => {
       const response = await fetch(
-        `https://my-shop3-b2989-default-rtdb.firebaseio.com/${uuid}/quotes.json`
+        `https://my-shop4-default-rtdb.firebaseio.com/${uuid}/quotes.json?auth=${token}`
       );
 
       if (!response.ok) {
@@ -97,7 +97,7 @@ export const fetchQuoteData = (uuid) => {
   };
 };
 
-export const deleteQuoteData = (id, uuid) => {
+export const deleteQuoteData = (id, uuid, token) => {
   return async (dispatch) => {
     dispatch(
       uiActions.changeUiState({
@@ -109,7 +109,7 @@ export const deleteQuoteData = (id, uuid) => {
 
     async function deleteData() {
       const response = await fetch(
-        `https://my-shop3-b2989-default-rtdb.firebaseio.com/${uuid}/quotes/${id}.json`,
+        `https://my-shop4-default-rtdb.firebaseio.com/${uuid}/quotes/${id}.json?auth=${token}`,
         {
           method: "DELETE",
         }
@@ -141,7 +141,7 @@ export const deleteQuoteData = (id, uuid) => {
   };
 };
 
-export const updateStatusData = (id, uuid ,payload) => {
+export const updateStatusData = (id, uuid ,payload, token) => {
   return async (dispatch) => {
     dispatch(
       uiActions.changeUiState({
@@ -153,7 +153,7 @@ export const updateStatusData = (id, uuid ,payload) => {
 
     async function updateData() {
       const response = await fetch(
-        `https://my-shop3-b2989-default-rtdb.firebaseio.com/${uuid}/quotes/${id}/status.json`,
+        `https://my-shop4-default-rtdb.firebaseio.com/${uuid}/quotes/${id}/status.json?auth=${token}`,
         {
           method: "PUT",
           body: JSON.stringify(payload),

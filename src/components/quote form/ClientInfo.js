@@ -50,17 +50,17 @@ function ClientInfo(props) {
   return (
     <Card>
       <div className={classes["client-info"]}>
-        {clientHasError && <label>Favor preencha o campo abixo</label>}
+        {clientHasError && <label>Field can't be blank</label>}
         <input
           type="text"
-          placeholder="Nome do cliente"
+          placeholder="Client name"
           onChange={handleClientName}
           onBlur={handleClientTouch}
         />
-        {phoneHasError && <label>Número de telefone inválido</label>}
+        {phoneHasError && <label>Invalid phone number</label>}
         <input
           type="text"
-          placeholder="Contato"
+          placeholder="Phone"
           maxLength={11}
           onChange={handlePhone}
           onBlur={handlePhoneTouch}

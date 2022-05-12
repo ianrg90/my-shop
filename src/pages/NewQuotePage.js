@@ -13,7 +13,7 @@ function NewQuotePage() {
 
   return (
     <Fragment>
-      <Header text="Folha de orçamento" />
+      <Header text="Quote Sheet" />
       <Main>
         {!isDamageFormDone && <DamagesForm onCompleteDamageForm = {completeDamageForm}/>}
         {isDamageFormDone && <NewQuoteForm/>}

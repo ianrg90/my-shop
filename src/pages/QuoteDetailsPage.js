@@ -19,7 +19,8 @@ function QuoteDetailsPage() {
   const [showConfirm, setShowConfirm] = useState(false);
   const [currentQuote, setCurrentQuote] = useState([]);
   const quote = useSelector((state) => state.quotes.quoteList);
-  const uuid = useSelector((state) => state.auth.uuid);
+  const authState = useSelector(state => state.auth)
+  const {uuid, token} = authState
   const params = useParams();
   const quoteID = params.quoteID;
   const dispatch = useDispatch();
@@ -73,7 +74,7 @@ function QuoteDetailsPage() {
     if (e.target.value === "") {
       return;
     }
-    dispatch(updateStatusData(quoteID, uuid, e.target.value));
+    dispatch(updateStatusData(quoteID, uuid, e.target.value, token));
     navigate("/user", { replace: true });
   }
 
@@ -86,7 +87,7 @@ function QuoteDetailsPage() {
 
   //delete quote
   function deleteQuote() {
-    dispatch(deleteQuoteData(quoteID, uuid));
+    dispatch(deleteQuoteData(quoteID, uuid, token));
     navigate("/user", { replace: true });
   }
 
@@ -121,25 +122,25 @@ function QuoteDetailsPage() {
 
   return (
     <Fragment>
-      <Header text="Ficha Orçamento" />
+      <Header text="Quote detail sheet" />
       <Main>
         {!showConfirm && (
           <div>
             <div ref={screenShotRef}>
               <Card>
                 <div className={classes.header}>
-                  <h1 className={classes.logo}>Retocar</h1>
+                  <h1 className={classes.logo}>My Shop</h1>
                   <h1 className={classes.date}>{currentQuote.date}</h1>
                 </div>
               </Card>
               <Card>
                 <div className={classes["client-info"]}>
                   <div className={classes["info-block"]}>
-                    <p className={classes["tags"]}>Nome do cliente:</p>
+                    <p className={classes["tags"]}>Client name:</p>
                     <p>{currentQuote.clientName}</p>
                   </div>
                   <div className={classes["info-block"]}>
-                    <p className={classes["tags"]}>Contato:</p>
+                    <p className={classes["tags"]}>Phone:</p>
                     <p>{phone}</p>
                   </div>
                   <div className={classes["info-block"]}>
@@ -151,27 +152,27 @@ function QuoteDetailsPage() {
               <Card>
                 <div className={classes["car-info"]}>
                   <div className={classes["info-block"]}>
-                    <p className={classes["tags"]}>Porte do veículo:</p>
+                    <p className={classes["tags"]}>Vehicle type:</p>
                     <p>{currentQuote.carType}</p>
                   </div>
                   <div className={classes["info-block"]}>
-                    <p className={classes["tags"]}>Marca:</p>
+                    <p className={classes["tags"]}>Brand:</p>
                     <p>{currentQuote.make}</p>
                   </div>
                   <div className={classes["info-block"]}>
-                    <p className={classes["tags"]}>Modelo:</p>
+                    <p className={classes["tags"]}>Model:</p>
                     <p>{currentQuote.model}</p>
                   </div>
                   <div className={classes["info-block"]}>
-                    <p className={classes["tags"]}>Placa:</p>
+                    <p className={classes["tags"]}>Plates:</p>
                     <p className={classes.uppercase}>{plate}</p>
                   </div>
                   <div className={classes["info-block"]}>
-                    <p className={classes["tags"]}>Cor:</p>
+                    <p className={classes["tags"]}>Color:</p>
                     <p>{currentQuote.color}</p>
                   </div>
                   <div className={classes["info-block"]}>
-                    <p className={classes["tags"]}>Ano:</p>
+                    <p className={classes["tags"]}>Year:</p>
                     <p>{currentQuote.year}</p>
                   </div>
                 </div>
@@ -179,7 +180,7 @@ function QuoteDetailsPage() {
               <Card>
                 <div className={classes["info-block"]}>
                   <p className={classes["tags"]}>
-                    Data prevista para entrega:{" "}
+                   Delivery date:{" "}
                   </p>
                   <p>{currentQuote.formatedDeliveryDate}</p>
                 </div>
@@ -187,12 +188,12 @@ function QuoteDetailsPage() {
               {damages && (
                 <Card>
                   <DamagesLegend />
-                  <h1>Relatório de danos</h1>
+                  <h1>Damages report</h1>
                   {damages}
                 </Card>
               )}
               <Card>
-                <h1>Serviços:</h1>
+                <h1>Services:</h1>
                 <hr />
                 {services}
                 <hr />
@@ -219,21 +220,21 @@ function QuoteDetailsPage() {
             <div className={classes.status}>
               <label htmlFor="status">Status: </label>
               <select name="status" onBlur={handleStatus}>
-                <option value="pendente">Pendente</option>
-                <option value="aprovado">Aprovado</option>
-                <option value="lanternagem">Lanternagem</option>
-                <option value="preparação">Preparação</option>
-                <option value="pintura">Pintura</option>
-                <option value="polimento">Polimento</option>
-                <option value="pronto">Pronto</option>
+                <option value="pending">Pending</option>
+                <option value="approved">Approved</option>
+                <option value="body work">Body work</option>
+                <option value="preparation">Preparation</option>
+                <option value="painting">Painting</option>
+                <option value="polishing">Polishing</option>
+                <option value="Finished">Finished</option>
               </select>
             </div>
             <div className={classes.actions}>
               <div className={classes["button-container"]}>
-                <Button text="Enviar" onClick={getScreenShot} />
+                <Button text="Send to client" onClick={getScreenShot} />
               </div>
               <div>
-                <Button text="Apagar orçamento" onClick={openDeleteModal} />
+                <Button text="Erase quote" onClick={openDeleteModal} />
               </div>
             </div>
           </div>

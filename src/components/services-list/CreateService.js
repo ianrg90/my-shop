@@ -7,7 +7,8 @@ import { postServiceData } from "../../store/service-actions";
 
 function CreateService(props) {
   const dispatch = useDispatch();
-  const uuid = useSelector(state => state.auth.uuid)
+  const authState = useSelector(state => state.auth)
+  const {uuid, token} = authState
 
   const {
     enteredValue: enteredService,
@@ -25,7 +26,7 @@ function CreateService(props) {
     }
 
     const service = enteredService.toLowerCase();
-    dispatch(postServiceData(service, uuid));
+    dispatch(postServiceData(service, uuid, token));
     props.onControlStatus()
     
     resetService();
@@ -35,17 +36,17 @@ function CreateService(props) {
     <Card>
       <form className={classes.services} onSubmit={handleServiceCreation}>
         <div>
-          {serviceHasError && <label>Favor preencher o campo abaixo!</label>}
+          {serviceHasError && <label>Field can't be blank</label>}
           <input
             value={enteredService}
             type="text"
-            placeholder="Nome do serviço"
+            placeholder="Service name"
             onChange={handleEnteredService}
             onBlur={handleServiceTouch}
           />
         </div>
         <div className={classes.actions}>
-          <Button text="Criar" />
+          <Button text="Create" />
         </div>
       </form>
     </Card>

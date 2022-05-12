@@ -1,14 +1,16 @@
-import { useNavigate, useLocation, Link} from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useNavigate, useLocation} from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import classes from "./Header.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { authActions } from "../../../store/auth-slice";
 import Button from "../../UI/Button";
 
 function Header(props) {
   const uiState = useSelector((state) => state.ui);
   const location = useLocation();
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   const { loading, status } = uiState;
   const errorOrLoadingState = loading || status === "Error!";
@@ -16,6 +18,10 @@ function Header(props) {
     location.pathname === "/login" || location.pathname === "/user";
 
   const showLogout = location.pathname === "/login";
+
+  function logout (){
+    dispatch(authActions.logUserOut())
+  }
 
   return (
     <header className={classes.header}>
@@ -31,7 +37,7 @@ function Header(props) {
           <h1 className={classes.title}>{props.text}</h1>
         </div>
         {!errorOrLoadingState && !showLogout && (
-          <Link to="/login" className={classes.logout}>Logout</Link>
+          <button onClick = {logout} className={classes.logout}>Logout</button>
         )}
       </div>
     </header>

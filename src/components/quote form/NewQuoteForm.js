@@ -26,7 +26,7 @@ function NewQuoteForm() {
     state.damageList.damages.filter((damage) => damage.typeOfDamage !== "")
   );
   const authState = useSelector(state=> state.auth)
-  const {uuid} = authState
+  const {uuid, token} = authState
   const navigate = useNavigate();
 
 
@@ -122,7 +122,7 @@ function NewQuoteForm() {
     };
 
     //use the quote action function to post on backend
-    dispatch(postQuoteData(quoteData, uuid));
+    dispatch(postQuoteData(quoteData, uuid, token));
 
     navigate("/user", { replace: true });
   }
@@ -141,7 +141,7 @@ function NewQuoteForm() {
       )}
       <NewService onGetServiceAndPrice={getServiceAndPrice} />
       <ObservationsAndParts onGetObsAndParts={getObsAndParts} />
-      <Button text="Finalizar orçamento" type="submit" onClick={submitQuote} />
+      <Button text="Finish quote" type="submit" onClick={submitQuote} />
     </form>
   );
 }

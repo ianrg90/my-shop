@@ -53,11 +53,11 @@ function Signin(props) {
       <Header text="Signin" />
       <Main>
         <div className={classes.logo}>
-          <h1>Retocar</h1>
+          <h1>Repair Shop Manager</h1>
         </div>
         <form>
           <div className={classes["form-control"]}>
-            {emailHasError && <label>Email inválido</label>}
+            {emailHasError && <label>Invalid email</label>}
             <input
               type="email"
               placeholder="Email"
@@ -65,18 +65,18 @@ function Signin(props) {
               onBlur={handleEmailTouched}
             />
             {passwordHasError && (
-              <label>Senha tem que ter no mínimo 6 digitos</label>
+              <label>Password must have at least 6 digits</label>
             )}
             <input
               type="password"
-              placeholder="Senha"
+              placeholder="Password"
               onChange={handleEnteredPassword}
               onBlur={handlePasswordTouched}
             />
           </div>
-          <Button text="Entrar" type="submit" onClick={submitForm} />
+          <Button text="Login" type="submit" onClick={submitForm} />
           <div className={classes["change-page-link"]}>
-            <p onClick={props.onChangePage}>Novo usuário ?</p>
+            <p onClick={props.onChangePage}>New user ?</p>
           </div>
         </form>
       </Main>

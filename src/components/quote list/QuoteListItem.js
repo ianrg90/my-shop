@@ -13,10 +13,10 @@ function QuoteListItem(props) {
             <div className={classes["car-info"]}>
               <h1>{props.client}</h1>
               <p>
-                Carro: {props.make} {props.model}
+                Car: {props.make} {props.model}
               </p>
-              <p>Cor: {props.color}</p>
-              <p>Placa: {props.plate}</p>
+              <p>Color: {props.color}</p>
+              <p>Plates: {props.plate}</p>
             </div>
             <div className={classes.status}>
               <p>{props.date}</p>

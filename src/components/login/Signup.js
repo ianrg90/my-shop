@@ -75,15 +75,15 @@ function Signup(props) {
       <Main>
         <form>
           <div className={classes["form-control"]}>
-            {nameHasError && <label>Favor preencher o campo abaixo</label>}
+            {nameHasError && <label>Field can't be empty</label>}
             <input
               type="text"
-              placeholder="Nome de usuário"
+              placeholder="Name"
               onChange={handleEnteredName}
               onBlur={handleNameTouch}
               value={enteredName}
             />
-            {emailHasError && <label>Email inválido!</label>}
+            {emailHasError && <label>Invalid email</label>}
             <input
               type="email"
               placeholder="Email"
@@ -92,27 +92,27 @@ function Signup(props) {
               value={enteredEmail}
             />
             {passwordHasError && (
-              <label>Senha tem que ter no mínimo 6 digitos</label>
+              <label>Password must have at least 6 digits</label>
             )}
             <input
               type="password"
-              placeholder="Senha"
+              placeholder="Password"
               onChange={handleEnteredPassword}
               onBlur={handlePasswordTouched}
               value={enteredPassword}
             />
-            {confirmedPasswordHasError && <label>Senhas não são iguais</label>}
+            {confirmedPasswordHasError && <label>Passwords don't match</label>}
             <input
               type="password"
-              placeholder="Confirme sua senha"
+              placeholder="Confirm password"
               onChange={handleEnteredConfirmedPassword}
               onBlur={handleConfirmedPasswordTouched}
               value={enteredConfirmPassword}
             />
           </div>
-          <Button text="Criar conta" type="submit" onClick={submitForm} />
+          <Button text="Signup" type="submit" onClick={submitForm} />
           <div className={classes["change-page-link"]}>
-            <p onClick={props.onChangePage}>Já tem uma conta?</p>
+            <p onClick={props.onChangePage}>Already is registered ?</p>
           </div>
         </form>
       </Main>

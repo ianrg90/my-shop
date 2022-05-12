@@ -93,42 +93,42 @@ function VehicleInfo(props) {
     <Fragment>
       <Card>
         <div className={classes["vehicle-model"]}>
-          {plateHasError && <label>Formato de placa inválida</label>}
+          {plateHasError && <label>Invalid plate format</label>}
           <input className={classes["plates-input"]}
             type="text"
-            placeholder="Placa"
+            placeholder="Plates"
             onChange={handlePlate}
             onBlur={handlePlateTouch}
             maxLength="7"
           />
-          {makeHasError && <label>Campo inválido</label>}
+          {makeHasError && <label>Invalid field</label>}
           <input
             type="text"
-            placeholder="Marca"
+            placeholder="Brand"
             onChange={handleMake}
             onBlur={handleMakeTouch}
           />
 
-          {modelHasError && <label>Campo inválido</label>}
+          {modelHasError && <label>Invalid field</label>}
           <input
             type="text"
-            placeholder="Modelo"
+            placeholder="Model"
             onChange={handleModel}
             onBlur={handleModelTouch}
           />
 
-          {colorHasError && <label>Campo inválido</label>}
+          {colorHasError && <label>Invalid field</label>}
           <input
             type="text"
-            placeholder="Cor"
+            placeholder="Color"
             onChange={handleColor}
             onBlur={handleColorTouch}
           />
 
-          {yearHasError && <label>Campo inválido</label>}
+          {yearHasError && <label>Invalid field</label>}
           <input
             type="number"
-            placeholder="Ano"
+            placeholder="Year"
             onChange={handleYear}
             onBlur={handleYearTouch}
           />
@@ -136,10 +136,10 @@ function VehicleInfo(props) {
       </Card>
       <Card>
         <div className={classes["vehicle-model"]}>
-          {dateHasError && <label>Campo inválido</label>}
+          {dateHasError && <label>Invalid field</label>}
           <input
             type="text"
-            placeholder="Data prevista para entrega"
+            placeholder="Delivery date"
             required
             onFocus={(e) => (e.target.type = "date")}
             onChange={handleDate}

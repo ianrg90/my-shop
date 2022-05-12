@@ -12,6 +12,11 @@ const authSlice = createSlice({
         setAuthData(state, action){
             state.token = action.payload.authData.idToken
             state.uuid = action.payload.authData.localId
+        },
+
+        logUserOut(state){
+            state.token = null
+            state.uuid = null
         }
     }
 })
